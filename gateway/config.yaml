@@ -1,0 +1,29 @@
+# Model aliases for every agent and harness (ADR-0008).
+# Swap upstream models here; nothing else changes.
+model_list:
+  # cheap: summaries, journaling, classification
+  - model_name: fast
+    litellm_params:
+      model: openrouter/z-ai/glm-5.3-flash
+  # strong, cost-competitive coding model; agent default
+  - model_name: code
+    litellm_params:
+      model: openrouter/deepseek/deepseek-v4-pro
+  # frontier reasoning, used sparingly
+  - model_name: reason
+    litellm_params:
+      model: openrouter/anthropic/claude-sonnet-5.5
+  # local Ollama for offline/private work (set up later)
+  - model_name: local
+    litellm_params:
+      model: ollama/local
+      api_base: http://host.docker.internal:11434
+
+litellm_settings:
+  drop_params: true
+  # monthly spend cap, resets every 30 days; ~100 EUR in USD
+  max_budget: 115
+  budget_duration: 30d
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
