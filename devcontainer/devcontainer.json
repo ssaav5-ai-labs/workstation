@@ -7,6 +7,7 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "containerEnv": {
+    "GH_TOKEN": "${localEnv:GH_TOKEN}",
     "LLM_GATEWAY_URL": "${localEnv:LLM_GATEWAY_URL}",
     "LLM_GATEWAY_KEY": "${localEnv:LLM_GATEWAY_KEY}",
     "SOPS_AGE_KEY_FILE": "/home/vscode/.sops-age/keys.txt"
