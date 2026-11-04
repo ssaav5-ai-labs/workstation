@@ -2,7 +2,7 @@
 # Run from gateway/: docker compose up -d
 services:
   gateway:
-    image: litellm/litellm:v1.106.2
+    image: litellm/litellm:v1.106.6
     container_name: llm-gateway
     ports:
       - "4000:4000"

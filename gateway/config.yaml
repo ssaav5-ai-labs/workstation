@@ -1,3 +1,7 @@
+# Fallback gateway (laptop Compose). The primary config is
+# homelab-gitops/platform/llm-gateway/config.yaml - keep fast/code/reason in sync.
+# `local` is fallback-only: the cluster has no Ollama.
+#
 # Model aliases for every agent and harness (ADR-0008).
 # Swap upstream models here; nothing else changes.
 model_list:
@@ -13,7 +17,7 @@ model_list:
   - model_name: reason
     litellm_params:
       model: openrouter/anthropic/claude-sonnet-5.5
-  # local Ollama for offline/private work (set up later)
+  # local Ollama for offline/private work (fallback only; the cluster has no Ollama)
   - model_name: local
     litellm_params:
       model: ollama/local
