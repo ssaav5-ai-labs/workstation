@@ -2,12 +2,12 @@
 
 The **cluster gateway is primary**: it runs LiteLLM in k3s from
 `homelab-gitops/platform/llm-gateway/` and answers at
-`http://llm.192.168.86.211.nip.io/v1`. Every container should point `LLM_GATEWAY_URL` there.
+`http://llm.192.168.86.210.nip.io/v1`. Every container should point `LLM_GATEWAY_URL` there.
 
 This Compose gateway is the **fallback**. Use it when:
 
 - the cluster or a `k3s-*` node is down,
-- `llm.192.168.86.211.nip.io` does not answer, or
+- `llm.192.168.86.210.nip.io` does not answer, or
 - nip.io is down.
 
 ## Start the fallback
@@ -38,7 +38,7 @@ devpod up "$env:USERPROFILE\code\github.com\ssaav5-ai-labs\homelab-gitops" --rec
 echo $LLM_GATEWAY_URL
 ```
 
-`http://host.docker.internal:4000` is the fallback; `http://llm.192.168.86.211.nip.io` is the cluster.
+`http://host.docker.internal:4000` is the fallback; `http://llm.192.168.86.210.nip.io` is the cluster.
 
 ## Verify
 
@@ -53,7 +53,7 @@ curl -s -o /dev/null -w '%{http_code}\n' \
 ## Go back to the cluster
 
 ```powershell
-setx LLM_GATEWAY_URL "http://llm.192.168.86.211.nip.io"
+setx LLM_GATEWAY_URL "http://llm.192.168.86.210.nip.io"
 ```
 
 Close and reopen PowerShell, recreate the container, and verify again. Then stop the fallback:
