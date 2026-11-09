@@ -6,10 +6,10 @@ Base tooling for the lab: the LLM gateway and the base devcontainer for code rep
 
 The **cluster gateway is primary**: it runs in k3s from
 [`homelab-gitops/platform/llm-gateway/`](https://github.com/ssaav5-ai-labs/homelab-gitops/tree/main/platform/llm-gateway)
-and answers at `http://llm.192.168.86.211.nip.io/v1`. Point `LLM_GATEWAY_URL` there.
+and answers at `http://llm.192.168.86.210.nip.io/v1`. Point `LLM_GATEWAY_URL` there.
 
 This Compose gateway is the **fallback**, for when the cluster or a `k3s-*` node is down,
-`llm.192.168.86.211.nip.io` does not answer, or nip.io is down. See
+`llm.192.168.86.210.nip.io` does not answer, or nip.io is down. See
 [`gateway/README.md`](gateway/README.md) for the switch steps.
 
 LiteLLM proxy in front of OpenRouter, with model aliases (ADR-0008):
